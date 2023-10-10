@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Earthquake Data Visualization</title>
+    <!-- Load plotly.js into the DOM -->
+    <script src='https://cdn.plot.ly/plotly-2.26.0.min.js'></script>
+    <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+    <!-- css for chartist -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <!-- cdn for chartist -->
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+    <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              Earthquake Alert Pie Chart using Chartist.js
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <div class="context">
+                    <strong>The Alert system for earthquakes is the Prompt Assessment of Global Earthquakes for Response (PAGER) which grades earthquakes based off a color gradient. Each color represents the threat level of the earthquake as follows:</strong>
+                    <ul>
+                        <li><strong>Green: </strong>Estimated Fatalities: 0 , Estimated Losses: < $1 million</li>
+                        <li><strong>Yellow: </strong>Estimated Fatalities: 1-99 , Estimated Losses: $1 million-$100 million</li>
+                        <li><strong>Orange: </strong>Estimated Fatalities: 100-999 , Estimated Losses: $100 million-$1 billion</li>
+                        <li><strong>Red: </strong>Estimated Fatalities: 1000+ , Estimated Losses: $1 billion+</li>
+                    </ul>
+                </div>
+                <div class="ct-chart ct-perfect-fourth"></div>
+            </div>
+          </div>
+        </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartist-plugin-legend/0.6.2/chartist-plugin-legend.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../static/css/chartstyle.css">
+    <button id='play-button'>Play Earthquake Song</button>
+    <div id='youtube-player'></div>
+    <script src="../static/js/globe.js"></script>
+    <script>
+        // Function to create and play the YouTube video player
+        function playEarthquakeSong() {
+            var videoId = 'HmAsUQEFYGI?si=XPF5lnY-WYbrKPK6&t=77'; // YouTube video ID
+            var playerContainer = document.getElementById('youtube-player');
+            // Create an iframe for the YouTube video player
+            var iframe = document.createElement('iframe');
+            iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1'; // Autoplay the video
+            iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+            iframe.allowFullscreen = true;
+            // Replace any existing player with the new one
+            while (playerContainer.firstChild) {
+                playerContainer.removeChild(playerContainer.firstChild);
+            }
+            playerContainer.appendChild(iframe);
+        }
+        // Add a click event listener to the "Play Earthquake Song" button
+        var playButton = document.getElementById('play-button');
+        playButton.addEventListener('click', playEarthquakeSong);
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+.ct-series-a .ct-bar, .ct-series-a .ct-line, .ct-series-a .ct-point, .ct-series-a .ct-slice-pie {
+  fill: #0CC162;
+}
+.ct-series-b .ct-bar, .ct-series-b .ct-line, .ct-series-b .ct-point, .ct-series-b .ct-slice-pie {
+  fill: #ffee00;
+}
+.ct-series-c .ct-bar, .ct-series-c .ct-line, .ct-series-c .ct-point, .ct-series-c .ct-slice-pie {
+  fill: #ff9100
+}
+.ct-series-d .ct-bar, .ct-series-d .ct-line, .ct-series-d .ct-point, .ct-series-d .ct-slice-pie {
+  fill: #f33818;
+}
+.ct-series-e .ct-bar, .ct-series-e .ct-line, .ct-series-e .ct-point, .ct-series-e .ct-slice-pie {
+  fill: #777777;
+}
+.ct-chart {
+  margin: auto;
+  width: 400px;
+  height: 400px;
+}
+.ct-chart {  
+  .ct-legend {      
+      position: relative;
+      z-index: 10;
+      list-style: none;
+      text-align: center;
+
+      li {
+          position: relative;
+          padding-left: 23px;
+          margin-right: 10px;
+          margin-bottom: 3px;
+          cursor: pointer;
+          display: inline-block;
+
+          &:before {
+              width: 12px;
+              height: 12px;
+              position: absolute;
+              left: 0;
+              content: '';
+              border: 3px solid transparent;
+              border-radius: 2px;
+          }
+          .inactive:before {
+              background: transparent;
+          }
+
+          &:nth-child(1)::before{
+              background-color: #0CC162;
+          }    
+      
+          &:nth-child(2)::before{
+              background-color: #ffee00;
+          }
+      
+          &:nth-child(3)::before{
+              background-color: #ff9100;
+          }
+      
+          &:nth-child(4)::before{
+              background-color: #f33818;
+          }
+          &:nth-child(1n+5)::before{
+            background-color: #777777;
+        }
+      }
+
+      .ct-legend-inside {
+          position: absolute;
+          top: 0;
+          right: 0;
+      }
+  }
+  g:not(.ct-grids):not(.ct-labels) g {
+      &:nth-child(1){
+          .ct-point,.ct-line {
+              stroke: #0CC162;        
+          }
+      }
+      &:nth-child(2){
+          .ct-point,.ct-line {
+              stroke: #ffee00;      
+          }
+      }
+      &:nth-child(3){
+          .ct-point,.ct-line {
+              stroke: #ff9100;       
+          }
+      }
+      &:nth-child(4){
+          .ct-point,.ct-line {
+              stroke: #f33818;       
+          }
+      }
+      &:nth-child(1n+5){
+        .ct-point,.ct-line {
+            stroke: #777777;       
+        }
+    }
+  }
+}
